@@ -3,7 +3,7 @@
     <data>
         <record id="view_definition_tree" model="ir.ui.view">
             <field name="name">document.definition.tree</field>
-            <field name="model">document.definition</field>
+            <field name="model">document.page</field>
             <field name="priority">100</field>
             <field name="arch" type="xml">
                 <tree string="Definitions" editable="top">
@@ -15,15 +15,15 @@
 
         <record id="view_definition_form" model="ir.ui.view">
             <field name="name">document.definition.form</field>
-            <field name="model">document.definition</field>
+            <field name="model">document.page</field>
             <field name="priority">100</field>
             <field name="arch" type="xml">
                 <form string="Definitions">
                     <sheet>
                         <h1>
-                            <field name="term"/>
+                            <field name="name"/>
                         </h1>
-                            <field name="definition"/>
+                            <field name="content"/>
                     </sheet>
                 </form>
             </field>
@@ -34,11 +34,11 @@
 
         <record id="view_definition_filter" model="ir.ui.view">
             <field name="name">document.definition.search</field>
-            <field name="model">document.definition</field>
+            <field name="model">document.page</field>
             <field name="arch" type="xml">
                 <search string="Definitions">
-                    <field name="term" string="Search Term" filter_domain="[('term','ilike',self)]"/>
-                    <field name="definition" string="Search in definition" filter_domain="[('definition','ilike',self)]"/>
+                    <field name="Term" string="Search Term" filter_domain="[('name','ilike',self)]"/>
+                    <field name="Definition" string="Search in definition" filter_domain="[('content','ilike',self)]"/>
                     <field name="write_uid"/>
                     <group expand="1" string="Group By...">
                         <filter string="Alphabetical" domain="[]" context="{'group_by':'first_letter'}"/>
@@ -51,11 +51,12 @@
 
         <record id="action_definition" model="ir.actions.act_window">
             <field name="name">Terms and definitions</field>
-            <field name="res_model">document.definition</field>
+            <field name="res_model">document.page</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_definition_tree"/>
             <field name="search_view_id" ref="view_definition_filter"/>
+            <field name="domain">[('type', '=', 'term')]</field>
         </record>
 
         <menuitem 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="terms_definitions_root" model="document.page">
+            <field name="name">Terms and defintitons</field>
+            <field name="tags"></field>
+            <field name="minor_edit">0</field>
+            <field name="index">1</field>
+            <field name="summary">Initial Page</field>
+            <field  name="content">Terms and definitions</field>
+        </record>
+    </data>
+</openerp>

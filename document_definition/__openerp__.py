@@ -9,10 +9,11 @@
     "category": "Knowledge",
     "depends": [
         'knowledge',
+        'document_page_partner_id',
     ],
     "data": [
         'views/templates.xml',
-        'security/ir.model.access.csv',
+        'data/document_definition_data.xml',
     ],
     "installable": True,
 }
