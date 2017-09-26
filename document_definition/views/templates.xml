@@ -7,8 +7,9 @@
             <field name="priority">100</field>
             <field name="arch" type="xml">
                 <tree string="Definitions" editable="top">
-                    <field name="term"/>
-                    <field name="definition"/>
+                    <field name="name"/>
+                    <field name="content"/>
+                    <field name="type" default="term" />
                 </tree>
             </field>
         </record>
@@ -23,7 +24,8 @@
                         <h1>
                             <field name="name"/>
                         </h1>
-                            <field name="content"/>
+                        <field name="content"/>
+                        <field name="type" />
                     </sheet>
                 </form>
             </field>
@@ -37,8 +39,8 @@
             <field name="model">document.page</field>
             <field name="arch" type="xml">
                 <search string="Definitions">
-                    <field name="Term" string="Search Term" filter_domain="[('name','ilike',self)]"/>
-                    <field name="Definition" string="Search in definition" filter_domain="[('content','ilike',self)]"/>
+                    <field name="name" string="Search Term" filter_domain="[('name','ilike',self)]"/>
+                    <field name="content" string="Search in definition" filter_domain="[('content','ilike',self)]"/>
                     <field name="write_uid"/>
                     <group expand="1" string="Group By...">
                         <filter string="Alphabetical" domain="[]" context="{'group_by':'first_letter'}"/>
@@ -57,6 +59,7 @@
             <field name="view_id" ref="view_definition_tree"/>
             <field name="search_view_id" ref="view_definition_filter"/>
             <field name="domain">[('type', '=', 'term')]</field>
+            <field name="context">{'default_type':'term'}</field>
         </record>
 
         <menuitem 

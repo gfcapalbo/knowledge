@@ -22,6 +22,6 @@ class DocumentPage(models.Model):
     first_letter = fields.Char(compute='_get_first_letter' , store=True)
 
     @api.depends('name')
-    def _get_first_letter(self, text):
+    def _get_first_letter(self):
         # if somehow the user starts with one or more whitespaces we trim
-        return text.lstrip()[:1].upper() or 'Blank Term'
+        self.first_letter = self.name.lstrip()[:1].upper() or 'Unknown'

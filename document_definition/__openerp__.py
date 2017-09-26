@@ -13,7 +13,6 @@
     ],
     "data": [
         'views/templates.xml',
-        'data/document_definition_data.xml',
     ],
     "installable": True,
 }
