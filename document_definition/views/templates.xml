@@ -10,6 +10,7 @@
                     <field name="name"/>
                     <field name="content"/>
                     <field name="type" readonly="1"/>
+                    <field name="project_id" readonly="1" invisible="1"/>
                 </tree>
             </field>
         </record>
@@ -26,6 +27,7 @@
                         </h1>
                         <field name="content"/>
                         <field name="type" readonly="1"/>
+                        <field name="project_id" readonly="1" invisible="1"/>
                     </sheet>
                 </form>
             </field>
